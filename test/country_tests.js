@@ -1,5 +1,6 @@
 var expect = require('chai').expect;
 var Country = require('../lib/country');
+var path = require('path');
 
 describe('Country', function() {
   it('can access small cities', function() {
@@ -39,5 +40,19 @@ describe('Country', function() {
 
     var cities = usa.findLargeCities();
     expect(cities).to.eql(['Chicago', 'New York']);
+  });
+
+  it.skip('reads cities', function(done) {
+    var usa = new Country('USA');
+    var file = path.join(__dirname, 'fixtures/cities.csv');
+    usa.loadCities(file, function(err) {
+        var small = usa.findSmallCities();
+        var medium = usa.findMediumCities();
+        var large = usa.findLargeCities();
+        expect(small).to.eql(['Savannah', 'Salt Lake City']);
+        expect(medium).to.eql(['Portland', 'Baltimore']);
+        expect(large).to.eql(['Chicago', 'New York']);
+        done();
+    });
   });
 });
