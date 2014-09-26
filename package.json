@@ -1,0 +1,15 @@
+{
+  "name": "jsi-quiz3",
+  "version": "0.1.0",
+  "description": "Quiz 3",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Whitney Young",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^1.9.1",
+    "mocha": "^1.21.4"
+  }
+}
